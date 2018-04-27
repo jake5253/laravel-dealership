@@ -37,7 +37,7 @@
                                             @if (file_exists(public_path('upload/shop.jpg')))
                                                 <img src="{{ asset('upload/shop.jpg') }}" width="300px"><br>
                                             @else
-                                                <img src="{{ asset('example/default.jpg') }}" width="300px"><br>
+                                                <img src="{{ asset('example/shop.jpg') }}" width="300px"><br>
                                             @endif
                                         </div>
                                     </div>
