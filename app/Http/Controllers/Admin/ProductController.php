@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Type;
-use App\Category;
+use App\Make;
 use App\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -41,7 +41,7 @@ class ProductController extends Controller
             'fuel_type' => 'required',
             'price' => 'required|numeric',
             'type' => 'required|numeric|exists:types,id',
-            'category_id' => 'required|numeric|exists:categories,id',
+            'make_id' => 'required|numeric|exists:makes,id',
             'photo' => 'required',
             'photo.*' => 'image|mimes:jpeg,bmp,png|max:2000',
 
@@ -76,11 +76,11 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $types = Type::pluck('name', 'id');
-        $categories = Category::pluck('name', 'id');
+        $makes = Make::pluck('name', 'id');
         return view('admin.products.edit')
             ->with('product', $product)
             ->with('types', $types)
-            ->with('categories', $categories);
+            ->with('makes', $makes);
     }
 
     public function update(Request $request, $id)
@@ -94,7 +94,7 @@ class ProductController extends Controller
             'transmission' => 'required',
             'fuel_type' => 'required',
             'price' => 'required|numeric',
-            'category_id' => 'numeric|exists:categories,id',
+            'make_id' => 'numeric|exists:makes,id',
             'photo[]' => 'image|mimes:jpeg,bmp,png|max:2000'
         ]);
         $data = $request->all();

@@ -59,8 +59,8 @@
                                         <div style="margin:7px">
 
                                             <h4>Price: ${{ number_format($product->price) }} USD</h4>
-                                            <strong>Type: </strong>{{ $product->category->type->name }} <br/>
-                                            <strong>Brand: </strong>{{ $product->category->name }} <br/>
+                                            <strong>Type: </strong>{{ $product->make->type->name }} <br/>
+                                            <strong>Make: </strong>{{ $product->make->name }} <br/>
                                             <strong>Mileage: </strong> {{ $product->mileage }}<br/>
                                             <strong>Color: </strong> {{ $product->color }}<br/>
                                             <strong>Year: </strong> {{ $product->year }}<br/>
@@ -91,7 +91,7 @@
     <div class='border-top margin-top'>
         <h3>SIMILAR PRODUCTS</h3>
         <div class="row">
-            @foreach ($product->category->products(['limit' => 4, 'newest' => 1, 'similar' => $product->id]) as $product)
+            @foreach ($product->make->products(['limit' => 4, 'newest' => 1, 'similar' => $product->id]) as $product)
                 <a href={{ route('productsDetail', ['id' => $product->id]) }}>
                     <div class="col-md-3">
                         @include('partials.products.product')

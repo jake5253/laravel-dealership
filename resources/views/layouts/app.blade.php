@@ -65,10 +65,10 @@
                                aria-haspopup="true" aria-expanded="false">{{ $type->name }}<span
                                         class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                @foreach ($type->categories as $category)
+                                @foreach ($type->makes as $make)
                                     <li role="separator" class="divider"></li>
                                     <li>
-                                        <a href="{{ route('showProductByCategory', ['id' => $category->id] ) }}">{{ $category->name }}</a>
+                                        <a href="{{ route('showProductByMake', ['id' => $make->id] ) }}">{{ $make->name }}</a>
                                     </li>
                                 @endforeach
                             </ul>

@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">New Make</div>
                     <div class="panel-body">
-                        {{Form::open(['route'=>'adminCategoriesStore', 'method' => 'post'])}}
+                        {{Form::open(['route'=>'adminMakesStore', 'method' => 'post'])}}
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             {!! Form::label('name', 'Make Name:') !!}
                             <div class="form-controls">

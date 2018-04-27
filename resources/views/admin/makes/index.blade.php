@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         List of Makes
-                        <div class="pull-right"><a href="{{ route('adminCategoriesCreate') }}">
+                        <div class="pull-right"><a href="{{ route('adminMakesCreate') }}">
                                 <button class="btn btn-xs btn-success">Add Make</button>
                             </a></div>
                     </div>
@@ -23,21 +23,21 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($categories as $category)
+                            @foreach($makes as $make)
                                 <tr>
-                                    <td>{{ $category->id }}</td>
-                                    <td>{{ $category->name }}</td>
-                                    @if (!empty($category->type))
-                                        <td>{{ $category->type->name }}</td>
+                                    <td>{{ $make->id }}</td>
+                                    <td>{{ $make->name }}</td>
+                                    @if (!empty($make->type))
+                                        <td>{{ $make->type->name }}</td>
                                     @endif
                                     <td class="text-right">
-                                        <a href="{{ route('adminCategoriesEdit', ['id' => $category->id] ) }}">
+                                        <a href="{{ route('adminMakesEdit', ['id' => $make->id] ) }}">
                                             <button class="btn btn-xs btn-primary">Edit</button>
                                         </a>
-                                        <a href="" data-toggle="modal" data-target="{{"#".$category->id}}">
+                                        <a href="" data-toggle="modal" data-target="{{"#".$make->id}}">
                                             <button class="btn btn-xs btn-danger">Delete</button>
                                         </a>
-                                        <div id="{{$category->id}}" class="modal fade" role="dialog">
+                                        <div id="{{$make->id}}" class="modal fade" role="dialog">
                                             <div class="modal-dialog">
 
                                                 <!-- Modal content-->
@@ -50,10 +50,10 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <p>Do you sure want to delete this make?</p><br>
-                                                        <h4>{{$category->name}}</h4>
+                                                        <h4>{{$make->name}}</h4>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <a href="{{ route('adminCategoriesDelete', ['id' => $category->id] ) }}">
+                                                        <a href="{{ route('adminMakesDelete', ['id' => $make->id] ) }}">
                                                             <button type="button" class="btn btn-danger">Yes</button>
                                                         </a>
                                                         <button type="button" class="btn btn-default"
@@ -68,7 +68,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {!! $categories->render() !!}
+                        {!! $makes->render() !!}
                     </div>
                 </div>
             </div>

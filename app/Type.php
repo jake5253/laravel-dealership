@@ -10,9 +10,9 @@ class Type extends Model
         'name',
     ];
     
-    public function categories($options = [])
+    public function makes($options = [])
     {
-        $relation = $this->hasMany('App\Category');
+        $relation = $this->hasMany('App\Make');
 
         if (!empty($options['limit'])) {
             $relation = $relation->take($options['limit'])->get();

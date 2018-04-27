@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Update Make</div>
                     <div class="panel-body">
-                        {{ Form::model($category, ['route' => ['adminCategoriesUpdate', $category->id], 'method' => 'put']) }}
+                        {{ Form::model($make, ['route' => ['adminMakesUpdate', $make->id], 'method' => 'put']) }}
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             {!! Form::label('name', 'Make Name:') !!}
                             <div class="form-controls">
@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                             {{ Form::submit('Update', ['class'=>'btn btn-primary']) }}
-                            <a href="{{ route('adminCategories')}}">Cancel</a>
+                            <a href="{{ route('adminMakes')}}">Cancel</a>
                             {{Form::close()}}
                         </div>
                     </div>

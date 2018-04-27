@@ -172,7 +172,7 @@
                             {!! Form::label('typ', 'Type') !!} <a href="{{route('adminTypesCreate')}}">new</a>
                             <div class="form-controls">
                                 <select name="type" class="form-controls">
-                                    <option value="{{$product->category->type->id}}">-{{$product->category->type->name}}
+                                    <option value="{{$product->make->type->id}}">-{{$product->make->type->name}}
                                         -
                                     </option>
                                     @foreach ($types as $type => $value)
@@ -186,15 +186,15 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
-                            {!! Form::label('cate', 'Make') !!} <a href="{{route('adminCategoriesCreate')}}">new</a>
+                        <div class="form-group{{ $errors->has('make_id') ? ' has-error' : '' }}">
+                            {!! Form::label('make', 'Make') !!} <a href="{{route('adminMakesCreate')}}">new</a>
                             <div class="form-controls">
-                                <select name="category_id" class="form-controls">
-                                    <option value="{{$product->category->id}}">-{{$product->category->name}}-</option>
+                                <select name="make_id" class="form-controls">
+                                    <option value="{{$product->make->id}}">-{{$product->make->name}}-</option>
                                 </select>
-                                @if ($errors->has('category_id'))
+                                @if ($errors->has('make_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('category_id') }}</strong>
+                                        <strong>{{ $errors->first('make_id') }}</strong>
                                     </span>
                                 @endif
                             </div>

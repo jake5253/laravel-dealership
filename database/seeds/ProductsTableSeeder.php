@@ -20,7 +20,7 @@ class ProductsTableSeeder extends Seeder
             'color' => 'blue',
             'transmission' => 'manual',
             'fuel_type' => 'gas',
-            'category_id' => 3,
+            'make_id' => 3,
         ]);
         DB::table('products')->insert([
             'name' => 'Chevy Car 2',
@@ -31,7 +31,7 @@ class ProductsTableSeeder extends Seeder
             'color' => 'red',
             'transmission' => 'auto',
             'fuel_type' => 'gas',
-            'category_id' => 3,
+            'make_id' => 3,
         ]);
         DB::table('products')->insert([
             'name' => 'Chevy Car 3',
@@ -42,7 +42,7 @@ class ProductsTableSeeder extends Seeder
             'color' => 'yellow',
             'transmission' => 'auto',
             'fuel_type' => 'gas',
-            'category_id' => 3,
+            'make_id' => 3,
         ]);
         DB::table('products')->insert([
             'name' => 'Pontiac Car 1',
@@ -53,7 +53,7 @@ class ProductsTableSeeder extends Seeder
             'color' => 'silver',
             'transmission' => 'manual',
             'fuel_type' => 'gas',
-            'category_id' => 5,
+            'make_id' => 5,
         ]);
         DB::table('products')->insert([
             'name' => 'Dodge Truck 1',
@@ -64,7 +64,7 @@ class ProductsTableSeeder extends Seeder
             'color' => 'blue',
             'transmission' => 'auto',
             'fuel_type' => 'diesel',
-            'category_id' => 2,
+            'make_id' => 2,
         ]);
         DB::table('products')->insert([
             'name' => 'Box Truck 1',
@@ -75,7 +75,7 @@ class ProductsTableSeeder extends Seeder
             'color' => 'white',
             'transmission' => 'auto',
             'fuel_type' => 'gas',
-            'category_id' => 4,
+            'make_id' => 4,
         ]);
         DB::table('products')->insert([
             'name' => 'Chevy Truck 1',
@@ -86,7 +86,7 @@ class ProductsTableSeeder extends Seeder
             'color' => 'red',
             'transmission' => 'auto',
             'fuel_type' => 'gas',
-            'category_id' => 1,
+            'make_id' => 1,
         ]);
         DB::table('products')->insert([
             'name' => 'Dodge Truck 2',
@@ -97,7 +97,7 @@ class ProductsTableSeeder extends Seeder
             'color' => 'black',
             'transmission' => 'auto',
             'fuel_type' => 'gas',
-            'category_id' => 2,
+            'make_id' => 2,
         ]);
     }
 }

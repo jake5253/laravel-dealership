@@ -13,15 +13,15 @@
                 @foreach ($types as $type)
                     <a href="{{ route('showProductByType', ['id' => $type->id] ) }}"><h3>{{ $type->name }}</h3></a>
                     <div class="panel-group">
-                        @foreach ($type->categories(['limit' => 2]) as $category)
+                        @foreach ($type->makes(['limit' => 2]) as $make)
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <a href="{{ route('showProductByCategory', ['id' => $category->id] ) }}">
-                                        <h4>{{ $category->name }}</h4></a>
+                                    <a href="{{ route('showProductByMake', ['id' => $make->id] ) }}">
+                                        <h4>{{ $make->name }}</h4></a>
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        @foreach ($category->products(['limit' => 4, 'newest' => 1]) as $product)
+                                        @foreach ($make->products(['limit' => 4, 'newest' => 1]) as $product)
                                             <a href={{ route('productsDetail', ['id' => $product->id]) }}>
                                                 <div class="col-md-3">
                                                     @include('partials.products.product')
@@ -30,7 +30,7 @@
                                         @endforeach
                                     </div>
                                     <div class="pull-right">
-                                        <a href="{{ route('showProductByCategory', ['id' => $category->id] ) }}">
+                                        <a href="{{ route('showProductByMake', ['id' => $make->id] ) }}">
                                             <button class="btn btn-xs btn-primary ">View more</button>
                                         </a>
                                     </div>

@@ -53,7 +53,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('adminTypes') }}">Types</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ route('adminCategories') }}">Makes</a></li>
+                            <li><a href="{{ route('adminMakes') }}">Makes</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{ route('adminProducts') }}">Products</a></li>
                         </ul>

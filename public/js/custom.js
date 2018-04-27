@@ -13,11 +13,11 @@ $(document).ready(function() {
 
                 success:function(data) {
 
-                    $('select[name="category_id"]').empty();
+                    $('select[name="make_id"]').empty();
 
                     $.each(data, function(key, value){
 
-                        $('select[name="category_id"]').append('<option value="'+ key +'">' + value + '</option>');
+                        $('select[name="make_id"]').append('<option value="'+ key +'">' + value + '</option>');
 
                     });
                 },
@@ -26,7 +26,7 @@ $(document).ready(function() {
                 }
             });
         } else {
-            $('select[name="category_id"]').empty();
+            $('select[name="make_id"]').empty();
         }
 
     });

@@ -4,9 +4,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3>{{ $category->name }}</h3>
+                <h3>{{ $make->name }}</h3>
                 <div class="panel-group">
-                    @foreach ($category->products(['newest' => true]) as $product)
+                    @foreach ($make->products(['newest' => true]) as $product)
                         <div class="col-md-3">
                             @include('partials.products.product')
                         </div>

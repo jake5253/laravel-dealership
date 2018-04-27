@@ -7,10 +7,10 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/services', 'ServicesController@index')->name('services');
 Route::get('/about', 'AboutController@index')->name('about');
-Route::get('/make/{id}', 'CategoryController@index')->name('showProductByCategory');
+Route::get('/make/{id}', 'MakeController@index')->name('showProductByMake');
 Route::get('/type/{id}', 'TypeController@index')->name('showProductByType');
 Route::get('/product/{id}', 'ProductController@index')->name('productsDetail');
-Route::get('types/get/{id}', 'ProductController@getCategories');
+Route::get('types/get/{id}', 'ProductController@getMakes');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin',  'middleware' => ['auth']], function () {
 
@@ -32,12 +32,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin',  'middleware' => ['au
     Route::get('/product/image/{id}/delete', 'ProductImageController@destroy')->name('adminProductsImageDelete');
     Route::get('/product/image/default', 'ProductImageController@setImageDefault')->name('adminImageDefault');
 
-    Route::get('/make', 'CategoryController@index')->name('adminCategories');
-    Route::get('/make/create', 'CategoryController@create')->name('adminCategoriesCreate');
-    Route::post('/make', 'CategoryController@store')->name('adminCategoriesStore');
-    Route::get('/make/{id}/edit', 'CategoryController@edit')->name('adminCategoriesEdit');
-    Route::put('/make/{id}', 'CategoryController@update')->name('adminCategoriesUpdate');
-    Route::get('/make/{id}/delete', 'CategoryController@destroy')->name('adminCategoriesDelete');
+    Route::get('/make', 'MakeController@index')->name('adminMakes');
+    Route::get('/make/create', 'MakeController@create')->name('adminMakesCreate');
+    Route::post('/make', 'MakeController@store')->name('adminMakesStore');
+    Route::get('/make/{id}/edit', 'MakeController@edit')->name('adminMakesEdit');
+    Route::put('/make/{id}', 'MakeController@update')->name('adminMakesUpdate');
+    Route::get('/make/{id}/delete', 'MakeController@destroy')->name('adminMakesDelete');
 
     Route::get('/type', 'TypeController@index')->name('adminTypes');
     Route::get('/type/create', 'TypeController@create')->name('adminTypesCreate');

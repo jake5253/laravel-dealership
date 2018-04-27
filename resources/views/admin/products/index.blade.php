@@ -30,8 +30,8 @@
                                     <td>{{ $product->year }}</td>
                                     <td>{{ $product->name }}</td>
                                     <td>{{ number_format($product->price) }}</td>
-                                    <td>{{ $product->category->name }}</td>
-                                    <td>{{ $product->category->type->name }}</td>
+                                    <td>{{ $product->make->name }}</td>
+                                    <td>{{ $product->make->type->name }}</td>
                                     <td class="pull-right">
                                         <a href="{{ route('adminProductsEdit', ['id' => $product->id] ) }}">
                                             <button class="btn btn-xs btn-primary">Edit</button>

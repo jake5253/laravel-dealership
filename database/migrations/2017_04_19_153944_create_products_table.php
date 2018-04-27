@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->decimal('price');
-            $table->integer('category_id')->unsigned();
+            $table->integer('make_id')->unsigned();
             $table->integer('mileage')->unsigned();
             $table->string('color')->nullable();
             $table->integer('year')->unsigned();

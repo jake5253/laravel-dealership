@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Product;
-use App\Type;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -15,10 +14,10 @@ class ProductController extends Controller
             ->with('product', $product);
     }
 
-    public function getCategories($id) {
-        $categories = DB::table("categories")->where("type_id", $id)->pluck("name","id");
+    public function getMakes($id) {
+        $makes = DB::table("makes")->where("type_id", $id)->pluck("name","id");
 
-        return json_encode($categories);
+        return json_encode($makes);
 
     }
 }

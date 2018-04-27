@@ -14,7 +14,7 @@ class CreateProductsReferencesTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('make_id')->references('id')->on('makes')->onDelete('cascade');
         });
     }
 
@@ -26,7 +26,7 @@ class CreateProductsReferencesTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign(['category_id']);
+            $table->dropForeign(['make_id']);
         });
     }
 }
