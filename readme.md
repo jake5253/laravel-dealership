@@ -6,6 +6,7 @@
 * cd laravel-dealership
 * composer install
 * Edit the .env file to your liking
+* rename database.sqlite if applicable to you
 * artisan migrate
 * artisan db:seed
 * artisan key:generate
