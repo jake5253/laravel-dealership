@@ -96,7 +96,36 @@
                                 @endif
                             </div>
                         </div>
+                        <hr>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3>Media</h3>
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('storefront') ? ' has-error' : '' }}">
+                            @if (file_exists(public_path('upload/storefront.jpg')))
+                                <img src="{{asset('upload/storefront.jpg')}}" style="max-height: 100px">
+                            @else
+                                <img src="{{asset('example/storefront.jpg')}}" style="max-height: 100px">
+                            @endif                            <br/>
+                            {!! Form::label('storefront', 'Storefront') !!}
+                            <div class="form-controls">
+                                {{ Form::file('storefront', ['class'=>'form-control']) }}
+                                @if ($errors->has('storefront'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('storefront') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <hr>
                         <div class="form-group{{ $errors->has('photo') ? ' has-error' : '' }}">
+                            @if (file_exists(public_path('upload/shop.jpg')))
+                                <img src="{{asset('upload/shop.jpg')}}" style="max-height: 100px">
+                            @else
+                                <img src="{{asset('example/shop.jpg')}}" style="max-height: 100px">
+                            @endif
+                                <br/>
                             {!! Form::label('photo', 'Shop Photo') !!}
                             <div class="form-controls">
                                 {{ Form::file('photo', ['class'=>'form-control']) }}
@@ -107,7 +136,13 @@
                                 @endif
                             </div>
                         </div>
+                        <hr>
                         <div class="form-group{{ $errors->has('banner') ? ' has-error' : '' }}">
+                            @if (file_exists(public_path('upload/banner.jpg')))
+                                <img src="{{asset('upload/banner.jpg')}}" style="max-height: 100px">
+                            @else
+                                <img src="{{asset('example/banner.jpg')}}" style="max-height: 100px">
+                            @endif                            <br/>
                             {!! Form::label('banner', 'Banner') !!}
                             <div class="form-controls">
                                 {{ Form::file('banner', ['class'=>'form-control']) }}
@@ -118,6 +153,7 @@
                                 @endif
                             </div>
                         </div>
+                        <hr>
                         <div class="form-group{{ $errors->has('gmap') ? ' has-error' : '' }}">
                             {!! Form::label('gmap', 'Google Map Link',['rel'=>'tooltip','title'=>'To get this value, go to Google Maps, search for address, click Share, click "Embed a map", then "COPY HTML". Paste the entire string here.']) !!}
                             <div class="form-controls">

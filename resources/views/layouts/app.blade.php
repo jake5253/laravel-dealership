@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -47,6 +48,7 @@
                     <li>
                         <a href="{{ route('home') }}">Home</a>
                     </li>
+                    <!-- Hide this for now TODO Maybe convert this to dropdown for all makes
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">All Types<span class="caret"></span></a>
@@ -59,6 +61,7 @@
                             @endforeach
                         </ul>
                     </li>
+                    -->
                     @foreach ($types as $type)
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -84,7 +87,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center">
-            <div class="panel-content" style="margin: 10px">
+            <div id="banner" class="panel-content" style="margin: 10px">
 
                 @if (file_exists(public_path('upload/banner.jpg')))
                     <img src="{{ asset('upload/banner.jpg') }}" style="max-width:100%; width:auto; max-height: 250px; height: auto; !important;"><br>
@@ -98,18 +101,7 @@
 
 @yield('content')
 
-<footer>
-    <hr>
-    <div class="container">
-        <div class="pull-right">
-            <a href="{{ route('admin') }}">Admin</a>
-        </div>
-        &copy;2018 Copyright {{config('app.name')}}. All Rights Reserved.
-        <!-- please leave the following (or comparable, public) tribute -->
-        <br>Base code by {{Html::mailto('jake.admin@gmail.com', 'Jason Miller')}}, Pennsylvania, USA
-    </div>
-    <br/>
-</footer>
+@include('layouts.footer')
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>

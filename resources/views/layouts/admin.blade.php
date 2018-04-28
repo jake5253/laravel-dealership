@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
 
     <!-- Scripts -->
     <script>
@@ -111,7 +113,7 @@
         </div>
     @endif
     @if(auth()->user()->email == 'admin@test.com')
-        <div class="alert alert-danger">
+        <div class="alert alert-danger text-center">
             You are logged in using the test account!<br/>
             This is a <strong>security risk!</strong><br/>
             You need to update your email address and password immediately!<br/>
@@ -122,14 +124,7 @@
 
 @yield('content')
 
-<footer>
-    <hr>
-    <div class="container">
-        &copy;2018 Copyright {{config('app.name')}}. All Rights Reserved. Web design
-        by {{Html::mailto('jake.admin@gmail.com', 'Jason Miller')}}, Ulster, PA
-    </div>
-    <br/>
-</footer>
+@include('layouts.footer')
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>

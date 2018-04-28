@@ -1,6 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div id="banner" class="panel-content" style="margin: 10px">
+
+                    @if (file_exists(public_path('upload/main.png')))
+                        <img src="{{ asset('upload/main.png') }}" style="max-width:100%; width:auto; max-height: 250px; height: auto; !important;"><br>
+                    @else
+                        <img src="{{ asset('example/main.png') }}" style="max-width:100%; width:auto; max-height: 250px; height: auto; !important;"><br>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container product-page">
         <div class="row">
             <div class="col-md-20">
@@ -67,4 +81,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <script>
+        document.getElementById("banner").style.display = 'none';
+    </script>
 @endsection

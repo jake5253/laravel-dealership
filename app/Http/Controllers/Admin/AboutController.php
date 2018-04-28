@@ -30,6 +30,8 @@ class AboutController extends Controller
             'hours' => 'required',
             'photo' => 'image|mimes:jpeg,bmp,png|max:2000',
             'banner' => 'image|mimes:jpeg,bmp,png|max:2000',
+            'storefront' => 'image|mimes:jpeg,bmp,png|max:2000',
+
         ]);
         $data = $request->all();
 
@@ -44,6 +46,12 @@ class AboutController extends Controller
             Image::make($photo)->orientate()->resize(800, null, function ($constraint) {
                 $constraint->aspectRatio();
             })->save('upload/banner.jpg');
+        }
+        if (isset($request['storefront'])) {
+            $photo = $request->storefront;
+            Image::make($photo)->orientate()->resize(800, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('upload/storefront.jpg');
         }
         if (strpos($data['gmap'], '<iframe') !== false) {
             $data['gmap'] = str_replace('<iframe src="', '', $data['gmap']);
