@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
 
     <!-- Scripts -->
@@ -23,90 +23,65 @@
     </script>
 </head>
 <body>
+
+
 <div id="app">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    {{ config('app.name', 'Market') }}
-                </a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="{{route('admin')}}">Admin</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Listings <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ route('adminTypes') }}">Types</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{ route('adminMakes') }}">Makes</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{ route('adminProducts') }}">Products</a></li>
-                        </ul>
-                    </li>
-                    <li role="separator" class="divider"></li>
-                    <li>
-                        <a href="{{ route('adminAboutEdit') }}">Business Info</a>
-                    </li>
-                    <li role="separator" class="divider"></li>
-                    <li>
-                        <a href="{{ route('adminServicesEdit') }}">Services</a>
-                    </li>
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ route('home') }}">{{config('app.name', '')}}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ route('admin') }}">Admin <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('adminAboutEdit')}}">Business Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('adminServicesEdit')}}">Services</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Listings
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ route('adminTypes' ) }}">Types</a>
+                        <a class="dropdown-item" href="{{ route('adminMakes') }}">Makes</a>
+                        <a class="dropdown-item" href="{{ route('adminProducts') }}">Products</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown pull-right">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        {{ Auth::user()->name }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
+                            Logout
+                        </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                          style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                                <li>
-                                    <a href="{{route('adminUsers')}}">Manage Users</a>
-                                </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                              style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                        <a href="{{route('adminUsers')}}">Manage Users</a>
 
-                            </ul>
-                        </li>
-
-                    @endif
-                </ul>
-            </div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </nav>
+</div>
+
+<div class="container">
     @if(session()->has('msg'))
         <div class="alert alert-success">
             <li>{{ session()->get('msg') }}</li>

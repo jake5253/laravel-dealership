@@ -6,10 +6,10 @@
             <div class="col-md-12 text-center">
                 <div id="banner" class="panel-content" style="margin: 10px">
 
-                    @if (file_exists(public_path('upload/main.png')))
-                        <img src="{{ asset('upload/main.png') }}" style="max-width:100%; width:auto; max-height: 250px; height: auto; !important;"><br>
+                    @if (file_exists(public_path('upload/storefront.jpg')))
+                        <img src="{{ asset('upload/storefront.jpg') }}" style="max-width:100%; width:auto; max-height: 250px; height: auto; !important;"><br>
                     @else
-                        <img src="{{ asset('example/main.png') }}" style="max-width:100%; width:auto; max-height: 250px; height: auto; !important;"><br>
+                        <img src="{{ asset('example/storefront.jpg') }}" style="max-width:100%; width:auto; max-height: 250px; height: auto; !important;"><br>
                     @endif
                 </div>
             </div>
