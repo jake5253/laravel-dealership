@@ -1,5 +1,5 @@
+<br/>
 <footer>
-    <hr>
     <div class="bg-dark" style="width: 100%; padding-left: 10%; padding-right: 10%">
         <div class="pull-right">
             <a href="{{ route('admin') }}">Admin</a>
@@ -8,5 +8,4 @@
         <!-- please leave the following (or comparable, public) tribute -->
             <br>Base code by {{Html::mailto('jake.admin@gmail.com', 'Jason Miller')}}, Pennsylvania, USA</p>
     </div>
-    <br/>
 </footer>

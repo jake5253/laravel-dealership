@@ -34,26 +34,30 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('services')}}">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('about')}}">About</a>
-                </li>
                 @foreach ($types as $type)
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        <a class="nav-link nav-link-dd dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                             {{ $type->name }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item"
+                               href="{{ route('showProductByType', ['id' => $type->id] ) }}">All {{ $type->name }}</a>
                             @foreach ($type->makes as $make)
-                                <a class="dropdown-item"
+                                <a class="nav-link-dd dropdown-item"
                                    href="{{ route('showProductByMake', ['id' => $make->id] ) }}">{{ $make->name }}</a>
                             @endforeach
                         </div>
                     </li>
                 @endforeach
+                @if (count($services) > 0)
+                <li class="nav-item">
+                    <a class="nav-link nav-link-nd" href="{{route('services')}}">Services</a>
+                </li>
+                @endif
+                <li class="nav-item">
+                    <a class="nav-link nav-link-nd" href="{{route('about')}}">About Us</a>
+                </li>
             </ul>
         </div>
     </nav>

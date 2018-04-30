@@ -10399,9 +10399,22 @@ a.text-dark:focus {
   padding-left: .5rem !important;
 }
 
+.nav-link-dd {
+  color: cornflowerblue !important;
+}
+
+.nav-link-nd {
+  color: royalblue !important;
+}
+
 .ml-auto .dropdown-menu {
   left: auto !important;
   right: 0px;
+}
+
+.center-block {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pull-right {

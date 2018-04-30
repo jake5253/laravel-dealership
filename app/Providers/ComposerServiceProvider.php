@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
 use App\Type;
+use App\Services;
 
 class ComposerServiceProvider extends ServiceProvider
 {
@@ -12,7 +13,10 @@ class ComposerServiceProvider extends ServiceProvider
     {
         View()->composer('layouts.app', function ($view) {
             $types = Type::all();
-            $view->with('types', $types);
+            $services = Services::all();
+
+            $view->with('types', $types)
+                ->with('services', $services);
         });
     }
 }

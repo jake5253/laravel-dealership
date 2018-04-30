@@ -29,11 +29,6 @@
                                             </a>
                                         @endforeach
                                     </div>
-                                    <div class="pull-right">
-                                        <a href="{{ route('showProductByMake', ['id' => $make->id] ) }}">
-                                            <button class="btn btn-xs btn-primary ">View more</button>
-                                        </a>
-                                    </div>
                                 </div>
                             </div>
                         @endforeach
